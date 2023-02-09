@@ -1,3 +1,3 @@
 # Hi there 👋
 
-visit my pportfolio <https://ilhammajidzaiman.github.io>
+visit my portfolio <https://ilhammajidzaiman.github.io>
