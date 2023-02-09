@@ -1,5 +1,8 @@
 ### Hi there 👋
 
+<https://www.markdownguide.org>
+<ilhammajidzaiman.github.io>
+
 <!--
 **ilhammajidzaiman/ilhammajidzaiman** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
