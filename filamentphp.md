@@ -1,13 +1,16 @@
 # Contents
 
 1. [Laravel](#laravel)
-    - [Instalation Laravel](#installation-laravel)
+   - [Instalation Laravel](#installation-laravel)
 2. [Filamentphp](#filamentphp)
-    - [Instalation Filamentphp](#installation-filamentphp)
-    - [Migrate](#migrate)
-    - [Create a user](#create-a-user)
-    - [Automatically generating forms and tables](#automatically-generating-forms-and-tables)
-    - [Observer](#observer)
+   - [Instalation Filamentphp](#installation-filamentphp)
+   - [Migrate](#migrate)
+   - [Create a user](#create-a-user)
+   - [Automatically generating forms and tables](#automatically-generating-forms-and-tables)
+   - [Observer](#observer)
+3. [Filament spatie roles permissions](#filament-spatie-roles-permissions)
+   - [Spatie permission package](#spatie-permission-package)
+   - [Instalation filament spatie roles permissions](#instalation-filament-spatie-roles-permissions)
 
 # Laravel
 
@@ -107,6 +110,71 @@ public function forceDeleted(User $user): void
             Storage::disk('public')->delete($user->file);
         }
     }
+```
+
+[to top ☝️](#contents)
+
+# Filament spatie roles permissions
+
+[Filament spatie roles permissions plugin](https://filamentphp.com/plugins/tharinda-rodrigo-spatie-roles-permissions) built on top of [Spatie permission package](https://spatie.be/docs/laravel-permission/v5/installation-laravel).
+
+## Spatie permission package
+
+See more documentation [here](https://spatie.be/docs/laravel-permission/v5/installation-laravel).
+
+Install the package via composer:
+
+```base
+composer require spatie/laravel-permission
+```
+
+Publish the migration and the config file `config/permission.php`:
+
+```base
+artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
+Clear config cache:
+
+```base
+php artisan optimize:clear
+```
+
+Run the migrations:
+
+```base
+php artisan migrate
+```
+
+## Instalation filament spatie roles permissions
+
+See more documentation [here](https://filamentphp.com/plugins/tharinda-rodrigo-spatie-roles-permissions).
+
+Install the package via composer:
+
+```base
+composer require althinect/filament-spatie-roles-permissions
+```
+
+Publish the migrations:
+
+```base
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
+Add the plugin to the `AdminPanelProvider`:
+
+```base
+use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+
+$panel
+    ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
+```
+
+Override existing config file:
+
+```base
+php artisan vendor:publish --tag="filament-spatie-roles-permissions-config" --force
 ```
 
 [to top ☝️](#contents)
